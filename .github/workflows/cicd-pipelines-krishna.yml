@@ -15,8 +15,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-    outputs:
-      image_digest: ${{ steps.meta.outputs.digest }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,19 +26,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata for Docker
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.IMAGE_NAME }}
-
-      - name: Build and push Docker image
+      - name: Build and push Docker image with :latest tag
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
           build-args: |
             APP_VERSION=${{ github.sha }}
 
@@ -57,13 +49,13 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            echo ${{ secrets.GHCR_PAT }} | sudo docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+            echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
-            sudo docker pull ${{ env.IMAGE_NAME }}@${{ needs.build.outputs.image_digest }}
+            docker pull ${{ env.IMAGE_NAME }}:latest
 
-            sudo docker stop my-app-container || true
-            sudo docker rm my-app-container || true
+            docker stop my-app-container || true
+            docker rm my-app-container || true
 
-            sudo docker run -d --name my-app-container --restart always -p 3000:3000 ${{ env.IMAGE_NAME }}@${{ needs.build.outputs.image_digest }}
+            docker run -d --name my-app-container --restart always -p 3000:3000 ${{ env.IMAGE_NAME }}:latest
 
-            sudo docker image prune -a -f
+            docker image prune -a -f
