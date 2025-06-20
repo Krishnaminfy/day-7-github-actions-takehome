@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: ghcr.io/${{ github.repository }}
+  IMAGE_NAME: ghcr.io/krishnaminfy/day-7-github-actions-takehome
 
 jobs:
   build:
@@ -26,13 +26,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Docker image with :latest tag
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: |
-            ${{ env.IMAGE_NAME }}:latest
+            ghcr.io/krishnaminfy/day-7-github-actions-takehome:latest
           build-args: |
             APP_VERSION=${{ github.sha }}
 
@@ -51,11 +51,11 @@ jobs:
           script: |
             echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
-            docker pull ${{ env.IMAGE_NAME }}:latest
+            docker pull ghcr.io/krishnaminfy/day-7-github-actions-takehome:latest
 
             docker stop my-app-container || true
             docker rm my-app-container || true
 
-            docker run -d --name my-app-container --restart always -p 3000:3000 ${{ env.IMAGE_NAME }}:latest
+            docker run -d --name my-app-container --restart always -p 3000:3000 ghcr.io/krishnaminfy/day-7-github-actions-takehome:latest
 
             docker image prune -a -f
