@@ -17,11 +17,14 @@ I created app.js and Dockerfile and installed express using npm, after doing npm
 <img width="959" alt="9" src="https://github.com/user-attachments/assets/8b3dc3f5-a736-422e-a108-19277136fd07" />
 
 
-<img width="960" alt="17 inboundrule" src="https://github.com/user-attachments/assets/a3c83880-d673-43e3-89a7-811c6d9f7641" />
+<img width="958" alt="10" src="https://github.com/user-attachments/assets/2a77a6de-00f4-43b6-84e1-4b2df0f83eb7" />
+<img width="960" alt="20" src="https://github.com/user-attachments/assets/3614b191-42e4-4334-a6dc-24e3357adb7a" />
+
 
 <img width="959" alt="13" src="https://github.com/user-attachments/assets/28c3392c-b10f-4a73-94a1-f0c8a745754f" />
 <img width="956" alt="14" src="https://github.com/user-attachments/assets/85735f63-981f-4f8b-9814-cb69b24a2b47" />
 <img width="960" alt="15" src="https://github.com/user-attachments/assets/dd248341-f3b5-49a2-819f-6691ae0f09d2" />
+<img width="960" alt="17 inboundrule" src="https://github.com/user-attachments/assets/a3c83880-d673-43e3-89a7-811c6d9f7641" />
 
 <img width="960" alt="16" src="https://github.com/user-attachments/assets/49c42647-dc15-4807-a593-449f9219555d" />
 
@@ -32,6 +35,5 @@ I created app.js and Dockerfile and installed express using npm, after doing npm
 <img width="957" alt="19" src="https://github.com/user-attachments/assets/68fb6c29-4bf0-4c4b-b910-2c39c274073f" />
 
 
-<img width="960" alt="20" src="https://github.com/user-attachments/assets/3614b191-42e4-4334-a6dc-24e3357adb7a" />
 
 
