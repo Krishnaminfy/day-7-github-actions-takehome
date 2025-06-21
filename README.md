@@ -3,10 +3,14 @@
 # step 1
 I created app.js and Dockerfile and installed express using npm, after doing npm init, I got package.json 
 <img width="960" alt="0" src="https://github.com/user-attachments/assets/6af0cc6f-8b40-4b84-98a4-9764584c56fa" />
+# Installing docker inside ec2 instance
+I used terraform code to launch the ec2 instance, which I previously used in the last assignment.
 <img width="960" alt="1" src="https://github.com/user-attachments/assets/813dd9e3-da47-48c6-8211-8c3c5df25921" />
 <img width="960" alt="2" src="https://github.com/user-attachments/assets/fbce17cc-a3a2-4dad-8f8c-07c495732278" />
 <img width="960" alt="3" src="https://github.com/user-attachments/assets/561d50ad-93ae-430b-9eb6-9c020bd9a402" />
 <img width="959" alt="12" src="https://github.com/user-attachments/assets/a925a726-3c36-43d6-9d05-3d6dd8d8b972" />
+
+adding secret variables inside the settings of github repo 
 <img width="960" alt="5" src="https://github.com/user-attachments/assets/3988eb85-4175-4d29-a884-44b664af18d3" />
 <img width="960" alt="6" src="https://github.com/user-attachments/assets/7db8c2a3-86dc-4a22-8bf4-1922f5744589" />
 
